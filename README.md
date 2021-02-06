@@ -5,7 +5,9 @@ repo for learning react on codeWithMosh
 ### Your First React App
 
 ```
-1. $ react-create-app <String>app_name
+
+~1. $ react-create-app <String>app_name~ (depreciated)
+1. $ npx create-react-app <String>app_name
 2. $ cd <String>app_name
 3. $npm start
 ```
