@@ -12,21 +12,26 @@ function sayHello() {
     console.log(i);
   }
   // var is accessible within the whole function
-  console.log(i); // will see i = 5
+  //   console.log(i); // will see i = 5 if using var, and error if using let.
   // let is only accessible within the block (like every other language.)
 }
 
 sayHello();
 
-const person = {
+let person = {
   name: "Mosh",
-  walk: function () {},
+  walk() {
+    console.log(this);
+  },
   talk() {},
 };
 
 const targetMember = "name";
-person.talk();
 person["name"] = "John";
-person[targetMember.value];
+person[targetMember] = "Nam";
 
 // this key word.
+person.walk(); // will log the person object
+const walk = person.walk.bind(person);
+// console.log(walk); // will return/log the walk function itself.
+walk(); // return undefined....
