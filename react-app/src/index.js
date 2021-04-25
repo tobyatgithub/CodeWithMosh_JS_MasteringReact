@@ -33,5 +33,32 @@ person[targetMember] = "Nam";
 // this key word.
 person.walk(); // will log the person object
 const walk = person.walk.bind(person);
-// console.log(walk); // will return/log the walk function itself.
+console.log(walk); // will return/log the walk function itself.
 walk(); // return undefined....
+
+// arrow function
+const square = function (number) {
+  return number * number;
+};
+console.log(square(5));
+
+const square2 = (number) => {
+  return number * number;
+};
+console.log(square2(5));
+
+const square3 = (number) => number * number;
+console.log(square3(5));
+
+const jobs = [
+  { id: 1, isActive: true },
+  { id: 2, isActive: true },
+  { id: 3, isActive: false },
+];
+
+// use case example:
+const activeJobs = jobs.filter(function (job) {
+  return job.isActive;
+});
+
+const activeJobs2 = jobs.filter((job) => job.isActive);
