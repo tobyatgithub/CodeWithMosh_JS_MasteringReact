@@ -6,6 +6,7 @@ ReactDOM.render(element, document.getElementById("root")); // element to render,
 
 console.log(element);
 
+// var vs. let vs. const
 function sayHello() {
   for (let i = 0; i < 5; i++) {
     console.log(i);
@@ -16,3 +17,16 @@ function sayHello() {
 }
 
 sayHello();
+
+const person = {
+  name: "Mosh",
+  walk: function () {},
+  talk() {},
+};
+
+const targetMember = "name";
+person.talk();
+person["name"] = "John";
+person[targetMember.value];
+
+// this key word.
