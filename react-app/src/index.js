@@ -67,6 +67,9 @@ const activeJobs = jobs.filter(function (job) {
 
 const activeJobs2 = jobs.filter((job) => job.isActive);
 
+console.log(activeJobs);
+console.log(activeJobs2);
+
 //////////////////////////////////////////////////////
 // arrow function and this
 //////////////////////////////////////////////////////
@@ -104,6 +107,7 @@ const colors = ["red", "green", "blue"];
 //   return "<li>" + color + "</li>";
 // });
 const items = colors.map((color) => `<li>${color}</li>`);
+// notice the map here will return a new object.
 console.log(items);
 
 //////////////////////////////////////////////////////
@@ -118,3 +122,27 @@ const address = {
 // st will be the new alias for the street
 const { street: st, city, country } = address;
 console.log(`Street: ${st}, city: ${city}, country: ${country}`);
+
+//////////////////////////////////////////////////////
+// spread operator
+//////////////////////////////////////////////////////
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+
+// const combined = first.concat(second);
+// // ... is the spread and allow you to unpack the list.
+// // making it convenient to concat multiple objects and add
+// // in new members in the middle.
+// const combined2 = [...first, "a", ...second, "b"];
+
+// spread also helps to clone
+const clone = [...first];
+console.log(first);
+console.log(clone);
+console.log(second);
+
+const firstProperty = { name: "mosh" };
+const secondProperty = { job: "Instructor" };
+
+const combined = { ...firstProperty, ...secondProperty, location: "AU" };
+console.log(combined);
