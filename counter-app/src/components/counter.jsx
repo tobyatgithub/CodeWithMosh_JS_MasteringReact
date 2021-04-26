@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 10,
+    count: 0,
     imageUrl: "https://picsum.photos/200",
     tags: [],
   };
@@ -17,11 +17,14 @@ class Counter extends Component {
     this.handleIncrement = this.handleIncrement.bind(this);
   }
 
-  handleIncrement() {
-    // this will be undefined, two solutions:
-    // either do the constructor + binding;
-    // or change handleIncrement function ot an arrow function
-    console.log("Increment clicked", this);
+  handleIncrement(product) {
+    // // the THIS will be undefined, two solutions:
+    // // either do the constructor + binding;
+    // // or change handleIncrement function ot an arrow function
+    // console.log("Increment clicked", this);
+    console.log(product);
+
+    this.setState({ count: this.state.count + 1 });
   }
 
   renderTags() {
@@ -42,7 +45,9 @@ class Counter extends Component {
         {/* <img src={this.state.imageUrl} alt="" /> */}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => {
+            this.handleIncrement({ product });
+          }}
           className="btn btn-secondary btn-sm"
         >
           Increment
