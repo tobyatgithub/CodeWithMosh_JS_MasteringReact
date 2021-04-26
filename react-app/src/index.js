@@ -62,3 +62,30 @@ const activeJobs = jobs.filter(function (job) {
 });
 
 const activeJobs2 = jobs.filter((job) => job.isActive);
+
+// arrow function and this
+console.log("arrow function and this.");
+
+const newPerson = {
+  talk() {
+    setTimeout(function () {
+      console.log("this", this);
+    }, 1000);
+  },
+};
+
+newPerson.talk(); // you will get a window reference for the talk.
+// old way solution is to define a `self = this` outside of the function()
+// and than use that as reference
+
+// New way:
+console.log("New way of arrow and this.");
+
+const newPerson2 = {
+  talk() {
+    setTimeout(() => {
+      console.log("this", this);
+    }, 1000);
+  },
+};
+newPerson2.talk();
