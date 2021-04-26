@@ -146,3 +146,36 @@ const secondProperty = { job: "Instructor" };
 
 const combined = { ...firstProperty, ...secondProperty, location: "AU" };
 console.log(combined);
+
+//////////////////////////////////////////////////////
+// classes
+//////////////////////////////////////////////////////
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  walk() {
+    console.log("walk");
+  }
+}
+
+const John = new Person("John");
+
+class Teacher extends Person {
+  constructor(name, degree) {
+    super(name);
+    this.degree = degree;
+  }
+
+  teach() {
+    console.log("teach");
+  }
+}
+
+const Tom = new Teacher("Tom", "MSc");
+Tom.walk();
+
+//////////////////////////////////////////////////////
+// Module
+//////////////////////////////////////////////////////
