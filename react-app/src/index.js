@@ -105,3 +105,16 @@ const colors = ["red", "green", "blue"];
 // });
 const items = colors.map((color) => `<li>${color}</li>`);
 console.log(items);
+
+//////////////////////////////////////////////////////
+// object destructuring
+//////////////////////////////////////////////////////
+const address = {
+  street: "sanmen road",
+  city: "shanghai",
+  country: "china",
+};
+
+// st will be the new alias for the street
+const { street: st, city, country } = address;
+console.log(`Street: ${st}, city: ${city}, country: ${country}`);
