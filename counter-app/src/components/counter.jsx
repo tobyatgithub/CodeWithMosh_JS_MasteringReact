@@ -12,6 +12,18 @@ class Counter extends Component {
     fontWeight: "bold",
   };
 
+  constructor() {
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this);
+  }
+
+  handleIncrement() {
+    // this will be undefined, two solutions:
+    // either do the constructor + binding;
+    // or change handleIncrement function ot an arrow function
+    console.log("Increment clicked", this);
+  }
+
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags!</p>;
     return (
@@ -22,10 +34,6 @@ class Counter extends Component {
         ))}
       </ul>
     );
-  }
-
-  handleIncrement() {
-    console.log("Increment clicked");
   }
 
   render() {
