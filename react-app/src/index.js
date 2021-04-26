@@ -6,7 +6,9 @@ ReactDOM.render(element, document.getElementById("root")); // element to render,
 
 console.log(element);
 
+//////////////////////////////////////////////////////
 // var vs. let vs. const
+//////////////////////////////////////////////////////
 function sayHello() {
   for (let i = 0; i < 5; i++) {
     console.log(i);
@@ -30,7 +32,9 @@ const targetMember = "name";
 person["name"] = "John";
 person[targetMember] = "Nam";
 
+//////////////////////////////////////////////////////
 // this key word.
+//////////////////////////////////////////////////////
 person.walk(); // will log the person object
 const walk = person.walk.bind(person);
 console.log(walk); // will return/log the walk function itself.
@@ -63,7 +67,9 @@ const activeJobs = jobs.filter(function (job) {
 
 const activeJobs2 = jobs.filter((job) => job.isActive);
 
+//////////////////////////////////////////////////////
 // arrow function and this
+//////////////////////////////////////////////////////
 console.log("arrow function and this.");
 
 const newPerson = {
@@ -89,3 +95,13 @@ const newPerson2 = {
   },
 };
 newPerson2.talk();
+
+//////////////////////////////////////////////////////
+//Array and map.
+//////////////////////////////////////////////////////
+const colors = ["red", "green", "blue"];
+// const items = colors.map((color) => {
+//   return "<li>" + color + "</li>";
+// });
+const items = colors.map((color) => `<li>${color}</li>`);
+console.log(items);
