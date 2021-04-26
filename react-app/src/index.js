@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Teacher } from "./Teacher";
 
 const element = <h1>Hello World</h1>;
 ReactDOM.render(element, document.getElementById("root")); // element to render, and where it shall render it
@@ -150,28 +151,8 @@ console.log(combined);
 //////////////////////////////////////////////////////
 // classes
 //////////////////////////////////////////////////////
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
 
-  walk() {
-    console.log("walk");
-  }
-}
-
-const John = new Person("John");
-
-class Teacher extends Person {
-  constructor(name, degree) {
-    super(name);
-    this.degree = degree;
-  }
-
-  teach() {
-    console.log("teach");
-  }
-}
+// const John = new Person("John");
 
 const Tom = new Teacher("Tom", "MSc");
 Tom.walk();
