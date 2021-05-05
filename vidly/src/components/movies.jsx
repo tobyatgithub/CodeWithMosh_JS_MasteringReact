@@ -18,6 +18,12 @@ class Movies extends Component {
     this.setState({ movies: new_movies });
   };
 
+  renderTags() {
+    let numOfMovies = this.state.movies.length;
+    if (numOfMovies === 0) return <p>There are no movies in the database.</p>;
+    return <p>Showing {numOfMovies} movies in the database.</p>;
+  }
+
   renderTableData() {
     return this.state.movies.map((movie) => {
       const {
@@ -52,6 +58,7 @@ class Movies extends Component {
     return (
       <div>
         <h1 id="title">Movie Database</h1>
+        {this.renderTags()}
         <table class="table" id="movies">
           <tr>
             <th>Title</th>
