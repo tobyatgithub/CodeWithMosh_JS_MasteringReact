@@ -70,3 +70,9 @@ Here we learnt about several important concepts to build complex components:
 > ```
 > table.table>thead>tr>th*4
 > ```
+
+### 4. Composing Component
+
+1. `props` vs. `state`:
+   `props` = data that we give to a component. And it is **READ** only!
+   `state` = data that is local and private to that component.
