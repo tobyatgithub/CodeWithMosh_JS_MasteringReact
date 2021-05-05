@@ -2,7 +2,7 @@
 
 repo for learning react on codeWithMosh
 
-### Your First React App
+### 1. Getting Started - Your First React App
 
 ```
 
@@ -17,7 +17,7 @@ repo for learning react on codeWithMosh
 This React is front-end focused. For JS with backend, check out the **nodeJs** course :)  
 Also checkout **"JS basics for beginners"** and **"Object-oriented programming in JS"** to make you a better coder in JS.
 
-### ES6 Refresher
+### 2. ES6 Refresher
 
 Here are some basic concepts that you shall know about JS.
 ![basic JS](./Utility/BasicJStoKnow.png)
@@ -56,3 +56,17 @@ walk();
 ```
 
 Notice that... in Javascript, a method/function CAN be an object.
+
+### 3. Component
+
+Here we learnt about several important concepts to build complex components:
+![basic JS components](./Utility/BasicJsComponents.png)
+
+> Tips
+>
+> 1. find templates from searching in bootstrap website.
+> 2. Zen-coding shortcut to generate complex markup for us quickly:
+>
+> ```
+> table.table>thead>tr>th*4
+> ```

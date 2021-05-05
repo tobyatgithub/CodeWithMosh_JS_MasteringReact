@@ -12,9 +12,10 @@ class Movies extends Component {
   }
 
   handleDeleter = (movie) => {
-    const new_movies = this.state.movies.filter(
-      (exist_movie) => exist_movie != movie
-    );
+    // const new_movies = this.state.movies.filter(
+    //   (exist_movie) => exist_movie != movie
+    // );
+    const new_movies = this.state.movies.filter((m) => m._id != movie._id);
     this.setState({ movies: new_movies });
   };
 
@@ -45,7 +46,7 @@ class Movies extends Component {
             onClick={() => {
               this.handleDeleter(movie);
             }}
-            className="btn btn-secondary btn-sm"
+            className="btn btn-danger btn-sm"
           >
             Delete
           </button>
@@ -55,10 +56,11 @@ class Movies extends Component {
   }
 
   render() {
+    const { length: numOfMovies } = this.state.movies;
+    if (numOfMovies === 0) return <p>There are no movies in the database.</p>;
     return (
-      <div>
-        <h1 id="title">Movie Database</h1>
-        {this.renderTags()}
+      <React.Fragment>
+        <p>Showing {numOfMovies} movies in the database.</p>
         <table class="table" id="movies">
           <tr>
             <th>Title</th>
@@ -69,7 +71,7 @@ class Movies extends Component {
           </tr>
           <tbody>{this.renderTableData()}</tbody>
         </table>
-      </div>
+      </React.Fragment>
     );
   }
 }
