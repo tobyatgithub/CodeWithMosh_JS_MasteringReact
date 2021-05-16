@@ -13,6 +13,21 @@ class App extends Component {
     ],
   };
 
+  // called once to initialize the class. The 1st lifecycle hook.
+  constructor() {
+    super();
+    console.log("app-constructor");
+    // Cant: can not do this.setState
+    // Cant: no access to this.props (can pass in a props as parameter)
+  }
+
+  // The 2nd lifecycle hook, called after the component is rendered
+  // into the DOM.
+  componentDidMount() {
+    //Ajax call
+    console.log("app - mounted");
+  }
+
   handleIncrement = (counter) => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
@@ -35,6 +50,8 @@ class App extends Component {
   };
 
   render() {
+    console.log("app - rendered");
+
     return (
       <React.Fragment>
         <NavBar
