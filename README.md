@@ -60,7 +60,7 @@ Notice that... in Javascript, a method/function CAN be an object.
 ### 3. Component
 
 Here we learnt about several important concepts to build complex components:
-![basic JS components](./Utility/BasicJsComponents.png)
+![basic JS to know](./Utility/BasicJStoKnow.png)
 
 > Tips
 >
@@ -70,3 +70,12 @@ Here we learnt about several important concepts to build complex components:
 > ```
 > table.table>thead>tr>th*4
 > ```
+
+### 4. Composing Component
+
+1. `props` vs. `state`:
+   `props` = data that we give to a component. And it is **READ** only!
+   `state` = data that is local and private to that component.
+
+2. React App LifeCycle:
+   ![JS LifeCycle](./Utility/JS_LifeCycle.png)
