@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
+import Like from "./common/like";
 
 class Movies extends Component {
   state = {
@@ -15,8 +16,17 @@ class Movies extends Component {
     // const new_movies = this.state.movies.filter(
     //   (exist_movie) => exist_movie != movie
     // );
-    const new_movies = this.state.movies.filter((m) => m._id != movie._id);
+    const new_movies = this.state.movies.filter((m) => m._id !== movie._id);
     this.setState({ movies: new_movies });
+  };
+
+  handleLike = (movie) => {
+    console.log("like clicked", movie);
+    const movies_copy = [...this.state.movies];
+    const index = movies_copy.indexOf(movie);
+    movies_copy[index] = { ...movies_copy[index] };
+    movies_copy[index].liked = !movies_copy[index].liked;
+    this.setState({ movies: movies_copy });
   };
 
   renderTags() {
@@ -34,6 +44,7 @@ class Movies extends Component {
         numberInStock,
         dailyRentalRate,
         publishDate,
+        liked,
       } = movie;
 
       return (
@@ -42,6 +53,9 @@ class Movies extends Component {
           <td>{genre.name}</td>
           <td>{numberInStock}</td>
           <td>{dailyRentalRate}</td>
+          <td>
+            <Like liked={liked} onClick={() => this.handleLike(movie)} />
+          </td>
           <button
             onClick={() => {
               this.handleDeleter(movie);
@@ -61,14 +75,16 @@ class Movies extends Component {
     return (
       <React.Fragment>
         <p>Showing {numOfMovies} movies in the database.</p>
-        <table class="table" id="movies">
+        <table className="table">
           <tr>
             <th>Title</th>
             <th>Genre</th>
             <th>Stock</th>
             <th>Rate</th>
+            <th></th>
             <th>Action</th>
           </tr>
+
           <tbody>{this.renderTableData()}</tbody>
         </table>
       </React.Fragment>
