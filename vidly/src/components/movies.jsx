@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
 import Like from "./common/like";
+import Pagination from "./common/pagination";
 
 class Movies extends Component {
   state = {
     movies: getMovies(),
+    pageSize: 4,
+    currentPage: 1,
   };
 
   constructor() {
@@ -27,6 +30,10 @@ class Movies extends Component {
     movies_copy[index] = { ...movies_copy[index] };
     movies_copy[index].liked = !movies_copy[index].liked;
     this.setState({ movies: movies_copy });
+  };
+
+  handlePageChange = (page) => {
+    console.log("page = ", page);
   };
 
   renderTags() {
@@ -71,6 +78,7 @@ class Movies extends Component {
 
   render() {
     const { length: numOfMovies } = this.state.movies;
+    const { pageSize, currentPage } = this.state;
     if (numOfMovies === 0) return <p>There are no movies in the database.</p>;
     return (
       <React.Fragment>
@@ -87,6 +95,13 @@ class Movies extends Component {
 
           <tbody>{this.renderTableData()}</tbody>
         </table>
+
+        <Pagination
+          itemsCount={this.state.movies.length}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={this.handlePageChange}
+        />
       </React.Fragment>
     );
   }
