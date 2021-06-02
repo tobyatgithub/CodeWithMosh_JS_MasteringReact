@@ -35,7 +35,7 @@ class Movies extends Component {
   };
 
   handleLike = (movie) => {
-    console.log("like clicked", movie);
+    // console.log("like clicked", movie);
     const movies_copy = [...this.state.movies];
     const index = movies_copy.indexOf(movie);
     movies_copy[index] = { ...movies_copy[index] };
@@ -48,7 +48,7 @@ class Movies extends Component {
   };
 
   handleGenreChange = (genre) => {
-    console.log("new genre clicked", genre);
+    // console.log("new genre clicked", genre);
     this.setState({ currentGenre: genre, currentPage: 1 });
   };
 
