@@ -110,4 +110,6 @@ npm i query-string@6.1.0
 2. magic :
 ```
 ul>(li>Link[to=''])*3
+
+Route[path][component]*4
 ```
