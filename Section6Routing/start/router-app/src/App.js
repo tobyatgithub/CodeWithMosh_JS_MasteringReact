@@ -17,11 +17,12 @@ class App extends Component {
         <div className="content">
           <Switch>
             {/* when using switch, do it from the most specific ones to the most general ones. */}
+            <Route path="/products/:id" component={ProductDetails} />
             <Route
               path="/products"
               render={(props) => <Products sortby="newest" {...props} />}
             ></Route>
-            <Route path="/posts" component={Posts}></Route>
+            <Route path="/posts/:year/:month" component={Posts}></Route>
             <Route path="/admin" component={Dashboard}></Route>
             <Route path="/" component={Home}></Route>
           </Switch>
