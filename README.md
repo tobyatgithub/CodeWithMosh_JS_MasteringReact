@@ -106,3 +106,8 @@ npm i react-router-dom@4.3.1
 # then we need this for query string parameters
 npm i query-string@6.1.0
 ```
+
+2. magic :
+```
+ul>(li>Link[to=''])*3
+```

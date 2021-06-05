@@ -87,29 +87,31 @@ class Movies extends Component {
     const { totalCount, data: movies } = this.getPageData();
 
     return (
-      <div className="row">
-        <div className="col-3">
-          <ListGroup
-            allGenres={allGenres}
-            currentGenre={currentGenre}
-            onGenreChange={this.handleGenreChange}
-          />
-        </div>
-        <div className="col">
-          <p>Showing {totalCount} movies in the database.</p>
-          <MoviesTable
-            movies={movies}
-            sortColumn={sortColumn}
-            onLike={this.handleLike}
-            onDelete={this.handleDeleter}
-            onSort={this.handleSort}
-          />
-          <Pagination
-            itemsCount={totalCount}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={this.handlePageChange}
-          />
+      <div>
+        <div className="row">
+          <div className="col-3">
+            <ListGroup
+              allGenres={allGenres}
+              currentGenre={currentGenre}
+              onGenreChange={this.handleGenreChange}
+            />
+          </div>
+          <div className="col">
+            <p>Showing {totalCount} movies in the database.</p>
+            <MoviesTable
+              movies={movies}
+              sortColumn={sortColumn}
+              onLike={this.handleLike}
+              onDelete={this.handleDeleter}
+              onSort={this.handleSort}
+            />
+            <Pagination
+              itemsCount={totalCount}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
+          </div>
         </div>
       </div>
     );
