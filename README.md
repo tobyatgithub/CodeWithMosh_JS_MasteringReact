@@ -102,4 +102,7 @@ In there we:
 ```bash
 # first we need to install a routing package for react
 npm i react-router-dom@4.3.1
+
+# then we need this for query string parameters
+npm i query-string@6.1.0
 ```
