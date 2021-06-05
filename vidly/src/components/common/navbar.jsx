@@ -1,19 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <ul>
-      <li>
-        <Link to="/">Movies</Link>
-      </li>
-      <li>
-        <Link to="/customers">Customers</Link>
-      </li>
-      <li>
-        <Link to="/rentals">Retals</Link>
-      </li>
-    </ul>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        Vidly
+      </a>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <NavLink className="nav-item nav-link" to="/movies">
+          Movies
+        </NavLink>
+        <NavLink className="nav-item nav-link" to="/customers">
+          Customers
+        </NavLink>
+        <NavLink className="nav-item nav-link" to="/rentals">
+          Rentals
+        </NavLink>
+      </div>
+    </nav>
   );
 };
 
