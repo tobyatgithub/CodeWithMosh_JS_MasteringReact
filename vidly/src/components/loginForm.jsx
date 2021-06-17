@@ -14,15 +14,17 @@ class LoginForm extends Component {
       errors.username = "Username is required.";
     if (account.password.trim() === "")
       errors.password = "Password is required.";
-    // return { username: "Username is required" };
+    return Object.keys(errors).length === 0 ? null : errors;
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const erros = this.validate();
+    const errors = this.validate();
+    console.log(errors);
+
     this.setState({ errors });
-    if (erros) return; // stop and dont call the server
+    if (errors) return; // stop and dont call the server
 
     // call the server, save, redirect
     console.log("Submitted");
