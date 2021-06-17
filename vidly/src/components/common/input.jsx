@@ -12,6 +12,7 @@ const Input = (props) => {
         type="text"
         className="form-control"
       />
+      {props.error && <div className="alert alert-danger">{props.error}</div>}
     </div>
   );
 };
