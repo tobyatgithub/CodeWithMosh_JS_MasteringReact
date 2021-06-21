@@ -113,3 +113,9 @@ ul>(li>Link[to=''])*3
 
 Route[path][component]*4
 ```
+
+### 7. Forms
+For easier validation.
+```bash
+npm i joi-browser@13.4
+```
