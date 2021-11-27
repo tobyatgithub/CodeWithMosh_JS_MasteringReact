@@ -2,6 +2,12 @@
 
 repo for learning react on codeWithMosh
 
+## Environment Setup
+
+```bash
+npm i -g create-react-app@1.5.2
+```
+
 ### 1. Getting Started - Your First React App
 
 ```
@@ -108,6 +114,7 @@ npm i query-string@6.1.0
 ```
 
 2. magic :
+
 ```
 ul>(li>Link[to=''])*3
 
@@ -115,7 +122,9 @@ Route[path][component]*4
 ```
 
 ### 7. Forms
+
 For easier validation.
+
 ```bash
 npm i joi-browser@13.4
 ```
