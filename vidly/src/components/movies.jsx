@@ -35,7 +35,7 @@ class Movies extends Component {
   };
 
   handleLike = (movie) => {
-    console.log("like clicked", movie);
+    // console.log("like clicked", movie);
     const movies_copy = [...this.state.movies];
     const index = movies_copy.indexOf(movie);
     movies_copy[index] = { ...movies_copy[index] };
@@ -48,7 +48,7 @@ class Movies extends Component {
   };
 
   handleGenreChange = (genre) => {
-    console.log("new genre clicked", genre);
+    // console.log("new genre clicked", genre);
     this.setState({ currentGenre: genre, currentPage: 1 });
   };
 
@@ -87,29 +87,31 @@ class Movies extends Component {
     const { totalCount, data: movies } = this.getPageData();
 
     return (
-      <div className="row">
-        <div className="col-3">
-          <ListGroup
-            allGenres={allGenres}
-            currentGenre={currentGenre}
-            onGenreChange={this.handleGenreChange}
-          />
-        </div>
-        <div className="col">
-          <p>Showing {totalCount} movies in the database.</p>
-          <MoviesTable
-            movies={movies}
-            sortColumn={sortColumn}
-            onLike={this.handleLike}
-            onDelete={this.handleDeleter}
-            onSort={this.handleSort}
-          />
-          <Pagination
-            itemsCount={totalCount}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={this.handlePageChange}
-          />
+      <div>
+        <div className="row">
+          <div className="col-3">
+            <ListGroup
+              allGenres={allGenres}
+              currentGenre={currentGenre}
+              onGenreChange={this.handleGenreChange}
+            />
+          </div>
+          <div className="col">
+            <p>Showing {totalCount} movies in the database.</p>
+            <MoviesTable
+              movies={movies}
+              sortColumn={sortColumn}
+              onLike={this.handleLike}
+              onDelete={this.handleDeleter}
+              onSort={this.handleSort}
+            />
+            <Pagination
+              itemsCount={totalCount}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
+          </div>
         </div>
       </div>
     );

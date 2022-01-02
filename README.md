@@ -2,6 +2,12 @@
 
 repo for learning react on codeWithMosh
 
+## Environment Setup
+
+```bash
+npm i -g create-react-app@1.5.2
+```
+
 ### 1. Getting Started - Your First React App
 
 ```
@@ -79,3 +85,46 @@ Here we learnt about several important concepts to build complex components:
 
 2. React App LifeCycle:
    ![JS LifeCycle](./Utility/JS_LifeCycle.png)
+
+### 5. Pagination, Filtering, and Sorting
+
+This is one of the most interesting, practical and also difficult section.  
+In there we:
+
+1. Added pagination for the `vidly` project. (using lodash to slice; calculate based on number of movies and show # per page; then generate paged items on the fly.)
+2. Added filtering of movies based on genre. (update the filter selection; lead to re-render page with new filtered movies)
+3. Made filtering work together with pagination. (have pagination happen after filtering)
+4. Added sorting (by column). (adding onclick to table column names; use lodash to sort and return new list of movies to re-render)
+5. Made sorting work with filtering and pagination.
+6. Added icons for sorting, and highlights for filtering.
+7. On top of that, Mosh also tried to encapsulate the code as much as possible.
+
+   ![JS LifeCycle](./Utility/JS_section5_paginationSort_summary.png)
+
+### 6. Routing
+
+1. setup:
+
+```bash
+# first we need to install a routing package for react
+npm i react-router-dom@4.3.1
+
+# then we need this for query string parameters
+npm i query-string@6.1.0
+```
+
+2. magic :
+
+```
+ul>(li>Link[to=''])*3
+
+Route[path][component]*4
+```
+
+### 7. Forms
+
+For easier validation.
+
+```bash
+npm i joi-browser@13.4
+```
