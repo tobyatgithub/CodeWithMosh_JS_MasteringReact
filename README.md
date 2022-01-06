@@ -13,7 +13,6 @@ npm i -g create-react-app@1.5.2
 ### 1. Getting Started - Your First React App
 
 ```
-
 ~1. $ react-create-app <String>app_name~ (depreciated)
 1. $ npx create-react-app <String>app_name
 2. $ cd <String>app_name
