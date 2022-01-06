@@ -5,6 +5,8 @@ repo for learning react on codeWithMosh
 ## Environment Setup
 
 ```bash
+npm --version
+node -v
 npm i -g create-react-app@1.5.2
 ```
 

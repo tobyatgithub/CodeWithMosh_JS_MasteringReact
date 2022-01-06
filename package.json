@@ -1,9 +1,27 @@
 {
   "dependencies": {
+    "create-react-app": "^1.2.1",
     "prop-types": "^15.6.2",
     "query-string": "^6.1.0"
   },
   "devDependencies": {
     "prettier": "^2.3.0"
-  }
+  },
+  "name": "mastering_react",
+  "description": "repo for learning react on codeWithMosh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobyatgithub/CodeWithMosh_JS_MasteringReact.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tobyatgithub/CodeWithMosh_JS_MasteringReact/issues"
+  },
+  "homepage": "https://github.com/tobyatgithub/CodeWithMosh_JS_MasteringReact#readme"
 }
