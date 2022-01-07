@@ -5,7 +5,7 @@ import { getGenres } from "../services/fakeGenreService";
 import { getMovie, saveMovie } from "../services/fakeMovieService";
 class NewMovieForm extends Form {
   state = {
-    data: { title: "", genreId: "", numberInStock: "", rate: "" },
+    data: { title: "", genreId: "", numberInStock: "", dailyRentalRate: "" },
     genres: [],
     errors: {},
   };
@@ -15,7 +15,7 @@ class NewMovieForm extends Form {
     title: Joi.string().required().label("Title"),
     genreId: Joi.string().required().label("Genre"), //.valid("a", "b", "c")
     numberInStock: Joi.number().required().min(0).label("Number In Stock"),
-    rate: Joi.number().required().min(0).max(10).label("Rate"),
+    dailyRentalRate: Joi.number().required().min(0).max(10).label("Rate"),
   };
 
   componentDidMount() {
@@ -40,7 +40,7 @@ class NewMovieForm extends Form {
       title: movie.title,
       genreId: movie.genre._id,
       numberInStock: movie.numberInStock,
-      rate: movie.dailyRentalRate,
+      dailyRentalRate: movie.dailyRentalRate,
     };
   }
 
@@ -59,7 +59,7 @@ class NewMovieForm extends Form {
           {this.renderInput("title", "Title")}
           {this.renderSelect("genreId", "Genre", this.state.genres)}
           {this.renderInput("numberInStock", "NumberInStock", "number")}
-          {this.renderInput("rate", "Rate", "number")}
+          {this.renderInput("dailyRentalRate", "Rate", "number")}
           {this.renderButton("Save")}
         </form>
       </div>
