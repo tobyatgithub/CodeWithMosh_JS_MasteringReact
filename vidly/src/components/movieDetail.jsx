@@ -1,18 +1,46 @@
 import React, { Component } from "react";
-import { getMovies } from "../services/fakeMovieService";
+import Joi from "joi-browser";
 import { getGenres } from "../services/fakeGenreService";
+import { getMovie } from "../services/fakeMovieService";
+
 class MovieDetails extends Component {
   state = {
-    movies: [],
-    allGenres: [], // we init a place holder here and init it in did mount.
-    // pageSize: 4,
-    // currentPage: 1,
-    // sortColumn: { path: "title", order: "asc" },
+    data: { title: "", genreId: "", numberInStock: "", rate: "" },
+    genres: [],
+    errors: {},
+  };
+
+  schema = {
+    _id: Joi.string(),
+    title: Joi.string().required().label("Title"),
+    genreId: Joi.string().required().label("Genre"), //.valid("a", "b", "c")
+    numberInStock: Joi.number().required().min(0).label("Number In Stock"),
+    rate: Joi.number().required().min(0).max(10).label("Rate"),
   };
 
   componentDidMount() {
-    const genres = [{ _id: "", name: "All Genres" }, ...getGenres()];
-    this.setState({ movies: getMovies(), allGenres: genres });
+    // console.log("aaa");
+    const genres = getGenres();
+    this.setState({ genres });
+
+    const cur_id = this.props.match.params.id;
+    if (cur_id === "new") return;
+
+    const cur_movie = getMovie(cur_id);
+    if (!cur_movie) return this.props.history.replace("/not-found");
+
+    this.setState({ data: this.mapToViewModel(cur_movie) });
+    console.log(this);
+  }
+
+  mapToViewModel(movie) {
+    return {
+      _id: movie._id,
+      title: movie.title,
+      genreId: movie.genre._id,
+      numberInStock: movie.numberInStock,
+      rate: movie.dailyRentalRate,
+    };
   }
 
   handleSave = () => {
@@ -20,22 +48,10 @@ class MovieDetails extends Component {
   };
 
   render() {
-    console.log("aaa");
-    // console.log(this);
-    const cur_id = this.props.match.params.id;
-    // console.log(cur_id);
-    const cur_movie = this.state.movies.filter((m) => m._id == cur_id)[0];
-    console.log("ok");
-    console.log(cur_movie);
-    this.setState(cur_movie);
-    console.log(this.state);
     return (
       <div>
         <h1>Movie Form </h1>
-        {this.renderInput("title", "Title")}
-        {this.renderInput("genre", "Genre", "Genre")}
-        {this.renderInput("numberInStock", "NumberInStock", "number")}
-        {this.renderInput("rate", "Rate", "number")}
+
         <button onClick={this.handleSave}>Save</button>
       </div>
     );
