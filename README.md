@@ -129,3 +129,13 @@ For easier validation.
 ```bash
 npm i joi-browser@13.4
 ```
+
+### 8. Search bar
+
+(Exercise 3 of the "Form" Chapter)
+
+Here we didn't use the `useState` hook. Instead, we utilize the old getPagedData function, such that whenever the `input` element of the searchBox.jsx is changed, the `onChange={(e) => onChange(e.currentTarget.value)}` will trigger and then change the associated `state` (more specifically, the `searchQuery` element in the `state`.)
+
+And here is the a bit ??confusing?? part: react seems will notice this change and callt eh `getPagedData` again and inside which we will update the `filtered` variable and thus update the searching result.
+
+detail see [this commit](https://github.com/tobyatgithub/CodeWithMosh_JS_MasteringReact/commit/1e8334a74d8271d050d770f2cd7097eb96d84036)
