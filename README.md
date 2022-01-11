@@ -1,6 +1,8 @@
 # CodeWithMosh_JS_MasteringReact
 
-repo for learning react on codeWithMosh
+repo for learning react on codeWithMosh.
+
+react = a lightweight library for building UIs (render the view and manage the DOM)
 
 ## Environment Setup
 
@@ -8,6 +10,9 @@ repo for learning react on codeWithMosh
 npm --version
 node -v
 npm i -g create-react-app@1.5.2
+
+# for calling back end
+npm i axio@0.18
 ```
 
 ### 1. Getting Started - Your First React App
@@ -139,3 +144,7 @@ Here we didn't use the `useState` hook. Instead, we utilize the old getPagedData
 And here is the a bit ??confusing?? part: react seems will notice this change and callt eh `getPagedData` again and inside which we will update the `filtered` variable and thus update the searching result.
 
 detail see [this commit](https://github.com/tobyatgithub/CodeWithMosh_JS_MasteringReact/commit/1e8334a74d8271d050d770f2cd7097eb96d84036)
+
+### 9. Calling Backend and JSON placeholder
+
+Downloaded chrome extension `JSON view`.

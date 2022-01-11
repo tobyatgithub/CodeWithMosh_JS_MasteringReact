@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.18.1",
     "bootstrap": "^4.1.1",
     "create-react-app": "^1.5.2",
     "esm": "^3.2.25",
