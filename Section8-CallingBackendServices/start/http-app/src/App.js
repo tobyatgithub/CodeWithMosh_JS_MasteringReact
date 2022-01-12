@@ -37,18 +37,22 @@ class App extends Component {
   };
 
   handleDelete = async (post) => {
-    await axios.delete(apiEndpoint + "/" + post.id);
-
-    // // delete from ui table
-    // let posts = [...this.state.posts];
-    // const idx = posts.indexOf(post);
-    // posts = posts.slice(0, idx).concat(posts.slice(idx + 1));
-    // this.setState({ posts });
-    // console.log("Delete", post);
+    // optimisitc update - gives user an illusion of a
+    // fast website. i.e. update the ui first, and if
+    // anything went wrong, revert.
+    const originalPosts = this.state.posts;
 
     // better way to delete
     const posts = this.state.posts.filter((p) => p.id !== post.id);
     this.setState({ posts });
+
+    try {
+      await axios.delete(apiEndpoint + "/" + post.id);
+      // throw new Error(""); // show the revert
+    } catch (ex) {
+      alert("Something failed while deleting a post!");
+      this.setState({ posts: originalPosts });
+    }
   };
 
   render() {
