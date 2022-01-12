@@ -8,7 +8,6 @@ axios.interceptors.response.use(null, (error) => {
     error.response.status >= 400 &&
     error.response.status < 500;
   if (!expectedError) {
-    console.log("INTERCEPTOR CALLED");
     console.log("logging the error", error);
     alert("an unexpected error occurred!");
   }
@@ -63,18 +62,8 @@ class App extends Component {
       await axios.delete("s" + apiEndpoint + "/" + post.id);
       // throw new Error(""); // show the revert
     } catch (ex) {
-      // to show interceptor will be called first
-      console.log("HANDLE DELETE CATCH BLOCK");
-      if (ex.response && ex.response.status === 404) {
-        // expected error (404, 400...)
-        // - display specific mesg
+      if (ex.response && ex.response.status === 404)
         alert("this post has already been deleted.");
-      } else {
-        // unexpected (network down, server down, db down, bug...)
-        // -- log and display a generic and friendly error
-        // MOVED to the interceptor.
-      }
-
       this.setState({ posts: originalPosts });
     }
   };
