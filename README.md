@@ -141,10 +141,22 @@ npm i joi-browser@13.4
 
 Here we didn't use the `useState` hook. Instead, we utilize the old getPagedData function, such that whenever the `input` element of the searchBox.jsx is changed, the `onChange={(e) => onChange(e.currentTarget.value)}` will trigger and then change the associated `state` (more specifically, the `searchQuery` element in the `state`.)
 
-And here is the a bit ??confusing?? part: react seems will notice this change and callt eh `getPagedData` again and inside which we will update the `filtered` variable and thus update the searching result.
+And here is the a bit ??confusing?? part: react seems will notice this change and call the `getPagedData` again and inside which we will update the `filtered` variable and thus update the searching result.
 
 detail see [this commit](https://github.com/tobyatgithub/CodeWithMosh_JS_MasteringReact/commit/1e8334a74d8271d050d770f2cd7097eb96d84036)
 
 ### 9. Calling Backend and JSON placeholder
 
 Downloaded chrome extension `JSON view`.
+
+### 10. exporting method like a library
+
+Check out the `httpService.js` in the http-all/services/ folder.
+
+Multiple benefits for doing that:
+
+1. clears the code (so that we don't expose many `error.response.status` stuff).
+2. make the code more portable and reuseable - anywhere else inside the project.
+3. easier to maintain - if we decide to replace axios by something else, that file is the only place we need to make a change.
+
+Interesting how easy it is to export by wrapping around existing functions (e.g. `get: axios.get`) and how by doing this it will recognize the `INTERCEPTOR` immediately!
