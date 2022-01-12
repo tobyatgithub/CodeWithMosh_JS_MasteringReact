@@ -50,7 +50,7 @@ class App extends Component {
       await axios.delete(apiEndpoint + "/" + post.id);
       // throw new Error(""); // show the revert
     } catch (ex) {
-      if (ex.response && ex.response.status == 404) {
+      if (ex.response && ex.response.status === 404) {
         // expected error (404, 400...)
         // - display specific mesg
         alert("this post has already been deleted.");
