@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import http from "./services/httpService";
+import config from "./config.json";
 import "./App.css";
 
-const apiEndpoint = "https://jsonplaceholder.typicode.com/posts";
 class App extends Component {
   state = {
     posts: [],
   };
 
   async componentDidMount() {
-    const { data: posts } = await http.get(apiEndpoint);
+    const { data: posts } = await http.get(config.apiEndpoint);
     this.setState({ posts });
   }
 
   handleAdd = async () => {
     const obj = { title: "a", body: "b" };
-    const { data: post } = await http.post(apiEndpoint, obj);
+    const { data: post } = await http.post(config.apiEndpoint, obj);
     console.log(post);
 
     const posts = [post, ...this.state.posts];
@@ -25,8 +25,8 @@ class App extends Component {
   handleUpdate = async (post) => {
     post.title = "UPDATE";
     // the two methods below are equivalent
-    const { data } = await http.put(apiEndpoint + "/" + post.id, post);
-    // axios.patch(apiEndpoint + "/" + post.id, { title: post.title });
+    const { data } = await http.put(config.apiEndpoint + "/" + post.id, post);
+    // axios.patch(config.apiEndpoint + "/" + post.id, { title: post.title });
 
     // update the ui
     const posts = [...this.state.posts];
@@ -47,7 +47,7 @@ class App extends Component {
     this.setState({ posts });
 
     try {
-      await http.delete(apiEndpoint + "/" + post.id);
+      await http.delete(config.apiEndpoint + "/" + post.id);
       // throw new Error(""); // show the revert
     } catch (ex) {
       if (ex.response && ex.response.status === 404)
