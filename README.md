@@ -169,3 +169,15 @@ Interesting how easy it is to export by wrapping around existing functions (e.g.
 ```bash
 npm i react-toastify@4.1
 ```
+
+### 12. logging your logs
+
+Here we use sentry.io as the error logging service.
+
+```bash
+npm install --save @sentry/react @sentry/tracing
+```
+
+Follow the instructions and it worked (different from the video.) Notice that you will need to turn the ad-blocker off to make it work (lol).
+
+And... free 2month sign-up with programmingwithmosh.com/tools

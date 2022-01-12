@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import http from "./services/httpService";
 import config from "./config.json";
+import * as Sentry from "@sentry/react";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
@@ -54,6 +55,7 @@ class App extends Component {
     } catch (ex) {
       if (ex.response && ex.response.status === 404)
         toast.error("this post has already been deleted.");
+      Sentry.captureException(ex);
       this.setState({ posts: originalPosts });
     }
   };
