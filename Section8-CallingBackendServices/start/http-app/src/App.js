@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import http from "./services/httpService";
 import config from "./config.json";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 class App extends Component {
@@ -51,7 +53,7 @@ class App extends Component {
       // throw new Error(""); // show the revert
     } catch (ex) {
       if (ex.response && ex.response.status === 404)
-        alert("this post has already been deleted.");
+        toast.error("this post has already been deleted.");
       this.setState({ posts: originalPosts });
     }
   };
@@ -59,6 +61,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <ToastContainer />
         <button className="btn btn-primary" onClick={this.handleAdd}>
           Add
         </button>

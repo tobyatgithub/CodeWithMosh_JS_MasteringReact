@@ -13,6 +13,9 @@ npm i -g create-react-app@1.5.2
 
 # for calling back end
 npm i axio@0.18
+
+# for better notification
+npm i react-toastify@4.1
 ```
 
 ### 1. Getting Started - Your First React App
@@ -160,3 +163,9 @@ Multiple benefits for doing that:
 3. easier to maintain - if we decide to replace axios by something else, that file is the only place we need to make a change.
 
 Interesting how easy it is to export by wrapping around existing functions (e.g. `get: axios.get`) and how by doing this it will recognize the `INTERCEPTOR` immediately!
+
+### 11. better notification with toastify
+
+```bash
+npm i react-toastify@4.1
+```
