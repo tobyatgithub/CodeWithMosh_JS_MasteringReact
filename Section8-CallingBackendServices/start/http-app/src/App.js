@@ -2,6 +2,19 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 
+axios.interceptors.response.use(null, (error) => {
+  const expectedError =
+    error.response &&
+    error.response.status >= 400 &&
+    error.response.status < 500;
+  if (!expectedError) {
+    console.log("INTERCEPTOR CALLED");
+    console.log("logging the error", error);
+    alert("an unexpected error occurred!");
+  }
+  return Promise.reject(error);
+});
+
 const apiEndpoint = "https://jsonplaceholder.typicode.com/posts";
 class App extends Component {
   state = {
@@ -47,9 +60,11 @@ class App extends Component {
     this.setState({ posts });
 
     try {
-      await axios.delete(apiEndpoint + "/" + post.id);
+      await axios.delete("s" + apiEndpoint + "/" + post.id);
       // throw new Error(""); // show the revert
     } catch (ex) {
+      // to show interceptor will be called first
+      console.log("HANDLE DELETE CATCH BLOCK");
       if (ex.response && ex.response.status === 404) {
         // expected error (404, 400...)
         // - display specific mesg
@@ -57,8 +72,7 @@ class App extends Component {
       } else {
         // unexpected (network down, server down, db down, bug...)
         // -- log and display a generic and friendly error
-        console.log("logging the error", ex);
-        alert("an unexpected error occurred!");
+        // MOVED to the interceptor.
       }
 
       this.setState({ posts: originalPosts });
